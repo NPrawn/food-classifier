@@ -1,0 +1,1002 @@
+{
+    "Abalone_Porridge": {
+        "ko_name": "전복죽",
+        "source_food_name": "전복죽",
+        "unit": "100g",
+        "calories_kcal": 79.0,
+        "carbs_g": 9.62,
+        "protein_g": 1.82,
+        "fat_g": 3.73,
+        "allergens": []
+    },
+    "Banquet_Noodles": {
+        "ko_name": "잔치국수",
+        "source_food_name": "잔치국수",
+        "unit": "100ml",
+        "calories_kcal": 61.0,
+        "carbs_g": 10.58,
+        "protein_g": 2.4,
+        "fat_g": 0.84,
+        "allergens": []
+    },
+    "Bean_Sprout_Salad": {
+        "ko_name": "콩나물무침",
+        "source_food_name": "콩나물무침",
+        "unit": "100g",
+        "calories_kcal": 69.0,
+        "carbs_g": 3.2,
+        "protein_g": 3.86,
+        "fat_g": 4.54,
+        "allergens": []
+    },
+    "Bean_Sprout_Soup": {
+        "ko_name": "콩나물국",
+        "source_food_name": "콩나물국",
+        "unit": "100g",
+        "calories_kcal": 6.0,
+        "carbs_g": 0.61,
+        "protein_g": 0.74,
+        "fat_g": 0.09,
+        "allergens": []
+    },
+    "Bellflower_Root_Salad": {
+        "ko_name": "도라지무침",
+        "source_food_name": "도라지나물무침",
+        "unit": "100g",
+        "calories_kcal": 130.0,
+        "carbs_g": 13.12,
+        "protein_g": 2.48,
+        "fat_g": 7.52,
+        "allergens": []
+    },
+    "Bibimbap": {
+        "ko_name": "비빔밥",
+        "source_food_name": "비빔밥",
+        "unit": "100g",
+        "calories_kcal": 142.0,
+        "carbs_g": 18.84,
+        "protein_g": 6.86,
+        "fat_g": 4.32,
+        "allergens": []
+    },
+    "Black_Bean_Noodles": {
+        "ko_name": "짜장면",
+        "source_food_name": "짜장면",
+        "unit": "100ml",
+        "calories_kcal": 153.0,
+        "carbs_g": 29.14,
+        "protein_g": 5.3,
+        "fat_g": 2.57,
+        "allergens": []
+    },
+    "Bossam": {
+        "ko_name": "보쌈",
+        "source_food_name": "보쌈김치",
+        "unit": "100g",
+        "calories_kcal": 30.0,
+        "carbs_g": 3.73,
+        "protein_g": 2.19,
+        "fat_g": 0.72,
+        "allergens": []
+    },
+    "Bracken_Namul": {
+        "ko_name": "고사리나물",
+        "source_food_name": "고사리나물",
+        "unit": "100ml",
+        "calories_kcal": 34.0,
+        "carbs_g": 3.57,
+        "protein_g": 2.7,
+        "fat_g": 1.65,
+        "allergens": []
+    },
+    "Braised_Lotus_Root": {
+        "ko_name": "연근조림",
+        "source_food_name": "연근조림",
+        "unit": "100g",
+        "calories_kcal": 174.0,
+        "carbs_g": 29.42,
+        "protein_g": 2.68,
+        "fat_g": 5.1,
+        "allergens": []
+    },
+    "Braised_Pacific_Saury": {
+        "ko_name": "꽁치조림",
+        "source_food_name": "꽁치조림",
+        "unit": "100g",
+        "calories_kcal": 244.0,
+        "carbs_g": 5.14,
+        "protein_g": 15.52,
+        "fat_g": 17.87,
+        "allergens": []
+    },
+    "Buckwheat_Noodles": {
+        "ko_name": "막국수",
+        "source_food_name": "막국수",
+        "unit": "100ml",
+        "calories_kcal": 58.0,
+        "carbs_g": 10.96,
+        "protein_g": 2.0,
+        "fat_g": 0.6,
+        "allergens": []
+    },
+    "Bulgogi": {
+        "ko_name": "불고기",
+        "source_food_name": "덮밥_불고기",
+        "unit": "100g",
+        "calories_kcal": 182.0,
+        "carbs_g": 26.96,
+        "protein_g": 6.6,
+        "fat_g": 5.31,
+        "allergens": []
+    },
+    "Chewy_Spaghetti": {
+        "ko_name": "쫄면",
+        "source_food_name": "쫄면",
+        "unit": "100g",
+        "calories_kcal": 129.0,
+        "carbs_g": 23.26,
+        "protein_g": 3.21,
+        "fat_g": 2.52,
+        "allergens": []
+    },
+    "Cold_Broth_Noodles": {
+        "ko_name": "물냉면",
+        "source_food_name": "물냉면",
+        "unit": "100ml",
+        "calories_kcal": 96.0,
+        "carbs_g": 18.22,
+        "protein_g": 3.6,
+        "fat_g": 0.71,
+        "allergens": []
+    },
+    "Cubed_Radish_Kimchi": {
+        "ko_name": "깍두기",
+        "source_food_name": "깍두기",
+        "unit": "100g",
+        "calories_kcal": 33.0,
+        "carbs_g": 4.24,
+        "protein_g": 1.56,
+        "fat_g": 1.06,
+        "allergens": []
+    },
+    "Dakgalbi": {
+        "ko_name": "닭갈비",
+        "source_food_name": "닭볶음(닭갈비)",
+        "unit": "100g",
+        "calories_kcal": 186.0,
+        "carbs_g": 7.93,
+        "protein_g": 13.98,
+        "fat_g": 10.96,
+        "allergens": []
+    },
+    "Deep_Fried_Chili_Peppers": {
+        "ko_name": "고추튀김",
+        "source_food_name": "고추튀김",
+        "unit": "100g",
+        "calories_kcal": 202.0,
+        "carbs_g": 14.6,
+        "protein_g": 7.6,
+        "fat_g": 12.6,
+        "allergens": []
+    },
+    "Dried_Pollack_Soup": {
+        "ko_name": "북엇국",
+        "source_food_name": "북어국",
+        "unit": "100g",
+        "calories_kcal": 28.0,
+        "carbs_g": 0.84,
+        "protein_g": 3.89,
+        "fat_g": 0.98,
+        "allergens": []
+    },
+    "Dried_Radish_Greens_Soup": {
+        "ko_name": "시래기국",
+        "source_food_name": "된장국_시래기",
+        "unit": "100g",
+        "calories_kcal": 15.0,
+        "carbs_g": 2.03,
+        "protein_g": 1.31,
+        "fat_g": 0.22,
+        "allergens": []
+    },
+    "Dumplings": {
+        "ko_name": "만두",
+        "source_food_name": "떡만두국",
+        "unit": "100g",
+        "calories_kcal": 111.0,
+        "carbs_g": 15.47,
+        "protein_g": 3.53,
+        "fat_g": 3.91,
+        "allergens": []
+    },
+    "Fish_Pancake": {
+        "ko_name": "생선전",
+        "source_food_name": "생선전_가자미",
+        "unit": "100g",
+        "calories_kcal": 154.0,
+        "carbs_g": 4.61,
+        "protein_g": 17.17,
+        "fat_g": 7.38,
+        "allergens": []
+    },
+    "Fish_Roe_Rice_Bowl": {
+        "ko_name": "알밥",
+        "source_food_name": "알밥",
+        "unit": "100g",
+        "calories_kcal": 128.0,
+        "carbs_g": 15.75,
+        "protein_g": 4.73,
+        "fat_g": 5.11,
+        "allergens": []
+    },
+    "Fried_Chicken": {
+        "ko_name": "후라이드치킨",
+        "source_food_name": "닭튀김_황금올리브 치킨",
+        "unit": "100g",
+        "calories_kcal": 254.0,
+        "carbs_g": null,
+        "protein_g": 18.77,
+        "fat_g": null,
+        "allergens": []
+    },
+    "Fried_Shrimp": {
+        "ko_name": "새우튀김",
+        "source_food_name": "새우튀김",
+        "unit": "100ml",
+        "calories_kcal": 145.0,
+        "carbs_g": 16.54,
+        "protein_g": 7.1,
+        "fat_g": 5.52,
+        "allergens": []
+    },
+    "Fried_Squid": {
+        "ko_name": "오징어튀김",
+        "source_food_name": "오징어튀김",
+        "unit": "100ml",
+        "calories_kcal": 81.0,
+        "carbs_g": 3.83,
+        "protein_g": 5.2,
+        "fat_g": 4.69,
+        "allergens": []
+    },
+    "Garlic_Chive_Kimchi": {
+        "ko_name": "부추김치",
+        "source_food_name": "부추김치",
+        "unit": "100g",
+        "calories_kcal": 47.0,
+        "carbs_g": 6.36,
+        "protein_g": 2.68,
+        "fat_g": 1.16,
+        "allergens": []
+    },
+    "Gimbap": {
+        "ko_name": "김밥",
+        "source_food_name": "김밥",
+        "unit": "100g",
+        "calories_kcal": 140.0,
+        "carbs_g": 19.98,
+        "protein_g": 4.84,
+        "fat_g": 4.55,
+        "allergens": []
+    },
+    "Ginseng_Chicken_Soup": {
+        "ko_name": "삼계탕",
+        "source_food_name": "삼계탕",
+        "unit": "100g",
+        "calories_kcal": 101.0,
+        "carbs_g": 3.84,
+        "protein_g": 10.68,
+        "fat_g": 4.8,
+        "allergens": []
+    },
+    "Gochujang_Stir_Fried_Dried_Pollack": {
+        "ko_name": "고추장진미채볶음",
+        "source_food_name": "오징어채볶음",
+        "unit": "100g",
+        "calories_kcal": 275.0,
+        "carbs_g": 29.77,
+        "protein_g": 22.04,
+        "fat_g": 7.57,
+        "allergens": []
+    },
+    "Gopchang_Hotpot": {
+        "ko_name": "곱창전골",
+        "source_food_name": "곱창전골",
+        "unit": "100ml",
+        "calories_kcal": 47.0,
+        "carbs_g": 2.66,
+        "protein_g": 3.57,
+        "fat_g": 2.61,
+        "allergens": []
+    },
+    "Green_Onion_Kimchi": {
+        "ko_name": "파김치",
+        "source_food_name": "파김치",
+        "unit": "100g",
+        "calories_kcal": 49.0,
+        "carbs_g": 8.51,
+        "protein_g": 2.5,
+        "fat_g": 0.58,
+        "allergens": []
+    },
+    "Grilled_Clams": {
+        "ko_name": "조개구이",
+        "source_food_name": "조개구이_키조개",
+        "unit": "100g",
+        "calories_kcal": 130.0,
+        "carbs_g": 10.44,
+        "protein_g": 17.43,
+        "fat_g": 2.07,
+        "allergens": []
+    },
+    "Grilled_Croaker": {
+        "ko_name": "조기구이",
+        "source_food_name": "조기구이",
+        "unit": "100g",
+        "calories_kcal": 177.0,
+        "carbs_g": 0.44,
+        "protein_g": 19.33,
+        "fat_g": 10.86,
+        "allergens": []
+    },
+    "Grilled_Deodeok": {
+        "ko_name": "더덕구이",
+        "source_food_name": "더덕구이",
+        "unit": "100g",
+        "calories_kcal": 184.0,
+        "carbs_g": 31.1,
+        "protein_g": 3.1,
+        "fat_g": 5.2,
+        "allergens": []
+    },
+    "Grilled_Dried_Pollack": {
+        "ko_name": "황태구이",
+        "source_food_name": "황태구이",
+        "unit": "100g",
+        "calories_kcal": 219.0,
+        "carbs_g": 13.45,
+        "protein_g": 23.9,
+        "fat_g": 7.7,
+        "allergens": []
+    },
+    "Grilled_Eel": {
+        "ko_name": "장어구이",
+        "source_food_name": "장어구이_고추장",
+        "unit": "100g",
+        "calories_kcal": 259.0,
+        "carbs_g": 6.18,
+        "protein_g": 19.82,
+        "fat_g": 17.21,
+        "allergens": []
+    },
+    "Grilled_Gopchang": {
+        "ko_name": "곱창구이",
+        "source_food_name": "곱창구이_소고기",
+        "unit": "100g",
+        "calories_kcal": 184.0,
+        "carbs_g": 4.71,
+        "protein_g": 14.89,
+        "fat_g": 11.73,
+        "allergens": []
+    },
+    "Grilled_Hairtail": {
+        "ko_name": "갈치구이",
+        "source_food_name": "갈치구이",
+        "unit": "100ml",
+        "calories_kcal": 147.0,
+        "carbs_g": 0.88,
+        "protein_g": 12.65,
+        "fat_g": 9.81,
+        "allergens": []
+    },
+    "Grilled_Mackerel": {
+        "ko_name": "고등어구이",
+        "source_food_name": "고등어구이",
+        "unit": "100ml",
+        "calories_kcal": 142.0,
+        "carbs_g": 2.69,
+        "protein_g": 9.51,
+        "fat_g": 9.99,
+        "allergens": []
+    },
+    "Grilled_Short_Rib_Patties": {
+        "ko_name": "떡갈비",
+        "source_food_name": "떡갈비",
+        "unit": "100g",
+        "calories_kcal": 202.0,
+        "carbs_g": 2.46,
+        "protein_g": 21.38,
+        "fat_g": 11.82,
+        "allergens": []
+    },
+    "Inari_Sushi": {
+        "ko_name": "유부초밥",
+        "source_food_name": "초밥_유부초밥",
+        "unit": "100g",
+        "calories_kcal": 194.0,
+        "carbs_g": 29.82,
+        "protein_g": 5.78,
+        "fat_g": 5.77,
+        "allergens": []
+    },
+    "Japchae": {
+        "ko_name": "잡채",
+        "source_food_name": "잡채",
+        "unit": "100g",
+        "calories_kcal": 146.0,
+        "carbs_g": 24.26,
+        "protein_g": 4.71,
+        "fat_g": 3.3,
+        "allergens": []
+    },
+    "Jokbal": {
+        "ko_name": "족발",
+        "source_food_name": "족발",
+        "unit": "100g",
+        "calories_kcal": 233.0,
+        "carbs_g": 0.93,
+        "protein_g": 26.04,
+        "fat_g": 13.91,
+        "allergens": []
+    },
+    "Kimchi_Fried_Rice": {
+        "ko_name": "김치볶음밥",
+        "source_food_name": "김밥_김치",
+        "unit": "100g",
+        "calories_kcal": 130.0,
+        "carbs_g": 19.17,
+        "protein_g": 4.3,
+        "fat_g": 4.03,
+        "allergens": []
+    },
+    "Kimchi_Pancake": {
+        "ko_name": "김치전",
+        "source_food_name": "김치전",
+        "unit": "100g",
+        "calories_kcal": 134.0,
+        "carbs_g": 19.01,
+        "protein_g": 5.05,
+        "fat_g": 4.2,
+        "allergens": []
+    },
+    "Kimchi_Stew": {
+        "ko_name": "김치찌개",
+        "source_food_name": "김치찌개",
+        "unit": "100g",
+        "calories_kcal": 61.0,
+        "carbs_g": 2.98,
+        "protein_g": 3.77,
+        "fat_g": 3.75,
+        "allergens": []
+    },
+    "Knife_Cut_Noodles": {
+        "ko_name": "칼국수",
+        "source_food_name": "칼국수",
+        "unit": "100g",
+        "calories_kcal": 77.0,
+        "carbs_g": 14.9,
+        "protein_g": 3.3,
+        "fat_g": 0.49,
+        "allergens": []
+    },
+    "Loach_Soup": {
+        "ko_name": "추어탕",
+        "source_food_name": "추어탕",
+        "unit": "100g",
+        "calories_kcal": 54.0,
+        "carbs_g": 3.07,
+        "protein_g": 3.24,
+        "fat_g": 3.18,
+        "allergens": []
+    },
+    "Meat_Patties": {
+        "ko_name": "동그랑땡",
+        "source_food_name": "완자전_소고기(동그랑땡/육원전)",
+        "unit": "100g",
+        "calories_kcal": 206.0,
+        "carbs_g": 8.45,
+        "protein_g": 13.08,
+        "fat_g": 13.33,
+        "allergens": []
+    },
+    "Mulhoe": {
+        "ko_name": "물회",
+        "source_food_name": "물회",
+        "unit": "100g",
+        "calories_kcal": 76.0,
+        "carbs_g": 7.9,
+        "protein_g": 4.91,
+        "fat_g": 2.7,
+        "allergens": []
+    },
+    "Multigrain_Rice": {
+        "ko_name": "잡곡밥",
+        "source_food_name": "잡곡밥",
+        "unit": "100g",
+        "calories_kcal": 146.0,
+        "carbs_g": 29.33,
+        "protein_g": 5.3,
+        "fat_g": 0.87,
+        "allergens": []
+    },
+    "Nabak_Kimchi": {
+        "ko_name": "나박김치",
+        "source_food_name": "나박김치",
+        "unit": "100g",
+        "calories_kcal": 10.0,
+        "carbs_g": 1.15,
+        "protein_g": 0.46,
+        "fat_g": 0.38,
+        "allergens": []
+    },
+    "Napa_Cabbage_Kimchi": {
+        "ko_name": "배추김치",
+        "source_food_name": "배추김치",
+        "unit": "100g",
+        "calories_kcal": 38.0,
+        "carbs_g": 6.49,
+        "protein_g": 1.98,
+        "fat_g": 0.43,
+        "allergens": []
+    },
+    "Pizza": {
+        "ko_name": "피자",
+        "source_food_name": "피자",
+        "unit": "100ml",
+        "calories_kcal": 153.0,
+        "carbs_g": 21.07,
+        "protein_g": 7.8,
+        "fat_g": 4.77,
+        "allergens": []
+    },
+    "Pollack_Stew": {
+        "ko_name": "동태찌개",
+        "source_food_name": "동태찌개",
+        "unit": "100g",
+        "calories_kcal": 44.0,
+        "carbs_g": 1.72,
+        "protein_g": 6.11,
+        "fat_g": 1.37,
+        "allergens": []
+    },
+    "Ponytail_Radish_Kimchi": {
+        "ko_name": "총각김치",
+        "source_food_name": "총각김치",
+        "unit": "100g",
+        "calories_kcal": 42.0,
+        "carbs_g": 7.89,
+        "protein_g": 1.92,
+        "fat_g": 0.29,
+        "allergens": []
+    },
+    "Pork_Backbone_Stew": {
+        "ko_name": "감자탕",
+        "source_food_name": "감자탕",
+        "unit": "100g",
+        "calories_kcal": 71.0,
+        "carbs_g": 2.27,
+        "protein_g": 6.31,
+        "fat_g": 4.06,
+        "allergens": []
+    },
+    "Pork_Belly": {
+        "ko_name": "삼겹살",
+        "source_food_name": "삼겹살구이",
+        "unit": "100g",
+        "calories_kcal": 467.0,
+        "carbs_g": 0.35,
+        "protein_g": 22.56,
+        "fat_g": 41.69,
+        "allergens": []
+    },
+    "Rabokki": {
+        "ko_name": "라볶이",
+        "source_food_name": "라볶이",
+        "unit": "100g",
+        "calories_kcal": 134.0,
+        "carbs_g": 20.14,
+        "protein_g": 2.83,
+        "fat_g": 4.71,
+        "allergens": []
+    },
+    "Radish_Soup": {
+        "ko_name": "무국",
+        "source_food_name": "무국",
+        "unit": "100ml",
+        "calories_kcal": 7.0,
+        "carbs_g": 1.2,
+        "protein_g": 0.3,
+        "fat_g": 0.17,
+        "allergens": []
+    },
+    "Ramen": {
+        "ko_name": "라면",
+        "source_food_name": "라면",
+        "unit": "100g",
+        "calories_kcal": 82.0,
+        "carbs_g": 13.65,
+        "protein_g": 1.72,
+        "fat_g": 2.28,
+        "allergens": []
+    },
+    "Raw_Fish_Salad": {
+        "ko_name": "회무침",
+        "source_food_name": "회무침",
+        "unit": "100g",
+        "calories_kcal": 82.0,
+        "carbs_g": 8.6,
+        "protein_g": 8.09,
+        "fat_g": 1.65,
+        "allergens": []
+    },
+    "Rice_Balls": {
+        "ko_name": "주먹밥",
+        "source_food_name": "주먹밥",
+        "unit": "100ml",
+        "calories_kcal": 135.0,
+        "carbs_g": 25.52,
+        "protein_g": 2.3,
+        "fat_g": 2.09,
+        "allergens": []
+    },
+    "Ricecake_Dumpling_Soup": {
+        "ko_name": "떡국_만두국",
+        "source_food_name": "떡만두국",
+        "unit": "100g",
+        "calories_kcal": 111.0,
+        "carbs_g": 15.47,
+        "protein_g": 3.53,
+        "fat_g": 3.91,
+        "allergens": []
+    },
+    "Sannakji": {
+        "ko_name": "산낙지",
+        "source_food_name": "산낙지",
+        "unit": "100g",
+        "calories_kcal": 60,
+        "carbs_g": 1.57,
+        "protein_g": 9.77,
+        "fat_g": 1.32,
+        "allergens": []
+    },
+    "Sausage_Stir_Fry": {
+        "ko_name": "소세지볶음",
+        "source_food_name": "소세지빵_감자샐러드 소세지빵",
+        "unit": "100g",
+        "calories_kcal": 319.0,
+        "carbs_g": null,
+        "protein_g": 10.37,
+        "fat_g": null,
+        "allergens": []
+    },
+    "Seasoned_Black_Beans": {
+        "ko_name": "콩자반",
+        "source_food_name": "콩조림(콩자반)",
+        "unit": "100g",
+        "calories_kcal": 281.0,
+        "carbs_g": 34.83,
+        "protein_g": 17.97,
+        "fat_g": 7.73,
+        "allergens": []
+    },
+    "Seasoned_Chicken": {
+        "ko_name": "양념치킨",
+        "source_food_name": "버거_양념치킨싸이 버거",
+        "unit": "100g",
+        "calories_kcal": 253.0,
+        "carbs_g": null,
+        "protein_g": 11.15,
+        "fat_g": null,
+        "allergens": []
+    },
+    "Seasoned_Spinach": {
+        "ko_name": "시금치나물",
+        "source_food_name": "시금치나물",
+        "unit": "100g",
+        "calories_kcal": 69.0,
+        "carbs_g": 3.36,
+        "protein_g": 3.74,
+        "fat_g": 4.46,
+        "allergens": []
+    },
+    "Shredded_Squid_Stir_Fry": {
+        "ko_name": "오징어채볶음",
+        "source_food_name": "오징어채볶음",
+        "unit": "100g",
+        "calories_kcal": 275.0,
+        "carbs_g": 29.77,
+        "protein_g": 22.04,
+        "fat_g": 7.57,
+        "allergens": []
+    },
+    "Shrimp_Fried_Rice": {
+        "ko_name": "새우볶음밥",
+        "source_food_name": "볶음밥_새우",
+        "unit": "100g",
+        "calories_kcal": 172.0,
+        "carbs_g": 22.85,
+        "protein_g": 6.31,
+        "fat_g": 6.14,
+        "allergens": []
+    },
+    "Smoked_Duck": {
+        "ko_name": "훈제오리",
+        "source_food_name": "훈제오리",
+        "unit": "100g",
+        "calories_kcal": 319.0,
+        "carbs_g": 4.83,
+        "protein_g": 17.22,
+        "fat_g": 25.63,
+        "allergens": []
+    },
+    "Soft_Tofu_Stew": {
+        "ko_name": "순두부찌개",
+        "source_food_name": "순두부찌개_김치",
+        "unit": "100g",
+        "calories_kcal": 35.0,
+        "carbs_g": 2.17,
+        "protein_g": 2.98,
+        "fat_g": 1.59,
+        "allergens": []
+    },
+    "Soy_Braised_Quail_Eggs": {
+        "ko_name": "메추리알장조림",
+        "source_food_name": "메추리알장조림",
+        "unit": "100ml",
+        "calories_kcal": 151.0,
+        "carbs_g": 8.89,
+        "protein_g": 11.3,
+        "fat_g": 6.79,
+        "allergens": []
+    },
+    "Soy_Simmered_Beef": {
+        "ko_name": "장조림",
+        "source_food_name": "장조림_달걀",
+        "unit": "100g",
+        "calories_kcal": 138.0,
+        "carbs_g": 8.67,
+        "protein_g": 9.85,
+        "fat_g": 7.12,
+        "allergens": []
+    },
+    "Soybean_Noodles": {
+        "ko_name": "콩국수",
+        "source_food_name": "콩국수",
+        "unit": "100g",
+        "calories_kcal": 81.0,
+        "carbs_g": 8.92,
+        "protein_g": 3.9,
+        "fat_g": 3.35,
+        "allergens": []
+    },
+    "Soybean_Stew": {
+        "ko_name": "된장찌개",
+        "source_food_name": "된장찌개",
+        "unit": "100g",
+        "calories_kcal": 46.0,
+        "carbs_g": 4.44,
+        "protein_g": 3.38,
+        "fat_g": 1.63,
+        "allergens": []
+    },
+    "Spicy_Beef_Soup": {
+        "ko_name": "육개장",
+        "source_food_name": "육개장",
+        "unit": "100g",
+        "calories_kcal": 30.0,
+        "carbs_g": 1.49,
+        "protein_g": 3.68,
+        "fat_g": 0.99,
+        "allergens": []
+    },
+    "Spicy_Cold_Noodles": {
+        "ko_name": "비빔냉면",
+        "source_food_name": "비빔냉면",
+        "unit": "100ml",
+        "calories_kcal": 90.0,
+        "carbs_g": 14.53,
+        "protein_g": 3.8,
+        "fat_g": 1.66,
+        "allergens": []
+    },
+    "Spicy_Pork_Stir_Fry": {
+        "ko_name": "제육볶음",
+        "source_food_name": "제육볶음",
+        "unit": "100ml",
+        "calories_kcal": 151.0,
+        "carbs_g": 5.73,
+        "protein_g": 12.2,
+        "fat_g": 8.39,
+        "allergens": []
+    },
+    "Spicy_Seafood_Noodles": {
+        "ko_name": "짬뽕",
+        "source_food_name": "짬뽕",
+        "unit": "100g",
+        "calories_kcal": 58.0,
+        "carbs_g": 8.26,
+        "protein_g": 2.79,
+        "fat_g": 1.54,
+        "allergens": []
+    },
+    "Steamed_Cockles": {
+        "ko_name": "꼬막찜",
+        "source_food_name": "꼬막찜",
+        "unit": "100g",
+        "calories_kcal": 96.0,
+        "carbs_g": 6.97,
+        "protein_g": 12.03,
+        "fat_g": 2.28,
+        "allergens": []
+    },
+    "Steamed_Seafood": {
+        "ko_name": "해물찜",
+        "source_food_name": "해물찜",
+        "unit": "100g",
+        "calories_kcal": 80.0,
+        "carbs_g": 7.08,
+        "protein_g": 8.52,
+        "fat_g": 1.96,
+        "allergens": []
+    },
+    "Stir_Fried_Anchovies": {
+        "ko_name": "멸치볶음",
+        "source_food_name": "멸치볶음",
+        "unit": "100g",
+        "calories_kcal": 276.0,
+        "carbs_g": 13.62,
+        "protein_g": 39.44,
+        "fat_g": 7.08,
+        "allergens": []
+    },
+    "Stir_Fried_Dried_Shrimp": {
+        "ko_name": "건새우볶음",
+        "source_food_name": "건새우볶음",
+        "unit": "100g",
+        "calories_kcal": 304.0,
+        "carbs_g": 5.4,
+        "protein_g": 41.55,
+        "fat_g": 12.95,
+        "allergens": []
+    },
+    "Stir_Fried_Fish_Cake": {
+        "ko_name": "어묵볶음",
+        "source_food_name": "어묵볶음",
+        "unit": "100g",
+        "calories_kcal": 197.0,
+        "carbs_g": 24.33,
+        "protein_g": 8.41,
+        "fat_g": 7.29,
+        "allergens": []
+    },
+    "Stir_Fried_Octopus": {
+        "ko_name": "주꾸미볶음",
+        "source_food_name": "주꾸미볶음",
+        "unit": "100g",
+        "calories_kcal": 106.0,
+        "carbs_g": 11.41,
+        "protein_g": 9.16,
+        "fat_g": 2.6,
+        "allergens": []
+    },
+    "Stir_Fried_Potato": {
+        "ko_name": "감자채볶음",
+        "source_food_name": "감자볶음_채소",
+        "unit": "100g",
+        "calories_kcal": 108.0,
+        "carbs_g": 13.1,
+        "protein_g": 2.04,
+        "fat_g": 5.22,
+        "allergens": []
+    },
+    "Stir_Fried_Zucchini": {
+        "ko_name": "애호박볶음",
+        "source_food_name": "애호박찜",
+        "unit": "100g",
+        "calories_kcal": 181.0,
+        "carbs_g": 21.18,
+        "protein_g": 9.5,
+        "fat_g": 6.48,
+        "allergens": []
+    },
+    "Stuffed_Cucumber_Kimchi": {
+        "ko_name": "오이소박이",
+        "source_food_name": "오이소박이",
+        "unit": "100g",
+        "calories_kcal": 37.0,
+        "carbs_g": 6.66,
+        "protein_g": 1.76,
+        "fat_g": 0.37,
+        "allergens": []
+    },
+    "Sundae": {
+        "ko_name": "순대",
+        "source_food_name": "순대",
+        "unit": "100g",
+        "calories_kcal": 187.0,
+        "carbs_g": 35.73,
+        "protein_g": 2.75,
+        "fat_g": 3.64,
+        "allergens": []
+    },
+    "Suyuk": {
+        "ko_name": "수육",
+        "source_food_name": "수육_소고기",
+        "unit": "100g",
+        "calories_kcal": 166.0,
+        "carbs_g": 2.04,
+        "protein_g": 28.43,
+        "fat_g": 4.94,
+        "allergens": []
+    },
+    "Tteokbokki": {
+        "ko_name": "떡볶이",
+        "source_food_name": "떡볶이",
+        "unit": "100g",
+        "calories_kcal": 144.0,
+        "carbs_g": 25.96,
+        "protein_g": 3.51,
+        "fat_g": 2.96,
+        "allergens": []
+    },
+    "White_Kimchi": {
+        "ko_name": "백김치",
+        "source_food_name": "백김치",
+        "unit": "100g",
+        "calories_kcal": 16.0,
+        "carbs_g": 3.0,
+        "protein_g": 0.95,
+        "fat_g": 0.07,
+        "allergens": []
+    },
+    "Yakgwa": {
+        "ko_name": "약과",
+        "source_food_name": "약과",
+        "unit": "100g",
+        "calories_kcal": 399.0,
+        "carbs_g": 84.89,
+        "protein_g": 4.2,
+        "fat_g": 4.75,
+        "allergens": []
+    },
+    "Young_Radish_Cold_Noodles": {
+        "ko_name": "열무국수",
+        "source_food_name": "국수_열무김치",
+        "unit": "100g",
+        "calories_kcal": 54.0,
+        "carbs_g": 8.7,
+        "protein_g": 1.88,
+        "fat_g": 1.28,
+        "allergens": []
+    },
+    "Young_Radish_Kimchi": {
+        "ko_name": "열무김치",
+        "source_food_name": "열무김치",
+        "unit": "100g",
+        "calories_kcal": 36.0,
+        "carbs_g": 5.87,
+        "protein_g": 2.39,
+        "fat_g": 0.38,
+        "allergens": []
+    },
+    "Yukhoe": {
+        "ko_name": "육회",
+        "source_food_name": "육회",
+        "unit": "100g",
+        "calories_kcal": 130.0,
+        "carbs_g": 8.12,
+        "protein_g": 9.93,
+        "fat_g": 6.43,
+        "allergens": []
+    },
+    "Zucchini_Pancake": {
+        "ko_name": "호박전",
+        "source_food_name": "호박전",
+        "unit": "100g",
+        "calories_kcal": 139.0,
+        "carbs_g": 10.73,
+        "protein_g": 4.32,
+        "fat_g": 8.73,
+        "allergens": []
+    }
+}

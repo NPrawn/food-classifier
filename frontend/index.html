@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>음식 이미지 분류 서비스</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            * {
+                box-sizing: border-box;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                    system-ui, sans-serif;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
+                background: #f3f4f6;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .wrapper {
+                width: 100%;
+                max-width: 780px;
+                padding: 24px 16px;
+            }
+            .card {
+                background: #ffffff;
+                border-radius: 14px;
+                box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+                padding: 20px 22px 22px;
+            }
+            .card-header {
+                margin-bottom: 16px;
+            }
+            .card-title {
+                margin: 0;
+                font-size: 20px;
+                font-weight: 600;
+                color: #111827;
+            }
+            .card-subtitle {
+                margin: 4px 0 0;
+                font-size: 13px;
+                color: #6b7280;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+                gap: 20px;
+            }
+
+            /* 업로드 영역 */
+            .upload-box {
+                border-radius: 10px;
+                border: 1px solid #d1d5db;
+                padding: 16px;
+                background: #f9fafb;
+            }
+            .upload-label {
+                font-size: 13px;
+                font-weight: 500;
+                margin-bottom: 8px;
+                color: #374151;
+            }
+            .upload-area {
+                border-radius: 8px;
+                border: 1px dashed #d1d5db;
+                padding: 18px 14px;
+                text-align: center;
+                cursor: pointer;
+                background: #ffffff;
+                transition: border-color 0.15s ease, background-color 0.15s ease;
+            }
+            .upload-area.hover {
+                border-color: #3b82f6;
+                background: #eff6ff;
+            }
+            .upload-main {
+                font-size: 13px;
+                margin-bottom: 4px;
+                color: #111827;
+            }
+            .upload-sub {
+                font-size: 12px;
+                color: #9ca3af;
+            }
+            #fileInput {
+                display: none;
+            }
+
+            .preview-wrapper {
+                margin-top: 14px;
+                display: flex;
+                gap: 12px;
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+            .preview-image {
+                width: 170px;
+                height: 170px;
+                border-radius: 10px;
+                object-fit: cover;
+                background: #e5e7eb;
+                border: 1px solid #e5e7eb;
+            }
+            .preview-info {
+                font-size: 12px;
+                color: #6b7280;
+                line-height: 1.5;
+            }
+            .preview-info b {
+                color: #374151;
+            }
+
+            .buttons {
+                margin-top: 14px;
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            button {
+                border-radius: 999px;
+                border: none;
+                padding: 8px 14px;
+                font-size: 13px;
+                cursor: pointer;
+                transition: background-color 0.15s ease, box-shadow 0.15s ease,
+                    transform 0.08s ease;
+            }
+            .btn-primary {
+                background-color: #2563eb;
+                color: #ffffff;
+                box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+            }
+            .btn-primary:hover {
+                background-color: #1d4ed8;
+                transform: translateY(-1px);
+                box-shadow: 0 6px 14px rgba(37, 99, 235, 0.4);
+            }
+            .btn-primary:disabled {
+                background-color: #9ca3af;
+                box-shadow: none;
+                cursor: default;
+                transform: none;
+            }
+            .btn-secondary {
+                background-color: #e5e7eb;
+                color: #111827;
+            }
+            .btn-secondary:hover {
+                background-color: #d1d5db;
+            }
+
+            .status {
+                margin-top: 10px;
+                font-size: 12px;
+                color: #6b7280;
+                min-height: 18px;
+            }
+            .status.error {
+                color: #b91c1c;
+            }
+            .status.success {
+                color: #15803d;
+            }
+
+            /* 결과 영역 */
+            .result-box {
+                border-radius: 10px;
+                border: 1px solid #e5e7eb;
+                padding: 14px 14px 12px;
+                background: #f9fafb;
+                font-size: 13px;
+                color: #374151;
+            }
+            .result-empty {
+                font-size: 12px;
+                color: #9ca3af;
+                font-style: italic;
+            }
+            .result-row {
+                margin-top: 8px;
+            }
+            .result-label {
+                font-weight: 500;
+                margin-right: 4px;
+                color: #4b5563;
+            }
+            .food-name {
+                font-size: 15px;
+                font-weight: 600;
+                color: #111827;
+            }
+            .food-name-en {
+                font-size: 12px;
+                color: #6b7280;
+                margin-left: 4px;
+            }
+            .confidence {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                font-size: 11px;
+                padding: 2px 8px;
+                border-radius: 999px;
+                margin-left: 6px;
+                background: #e5e7eb;
+                color: #374151;
+            }
+            .conf-dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 999px;
+                background: #22c55e;
+            }
+            .conf-mid {
+                background: #facc15;
+            }
+            .conf-low {
+                background: #f97316;
+            }
+
+            .prob-text {
+                font-size: 12px;
+                color: #4b5563;
+            }
+            .prob-bar-wrap {
+                margin-top: 4px;
+                background: #e5e7eb;
+                border-radius: 999px;
+                overflow: hidden;
+                height: 8px;
+            }
+            .prob-bar {
+                height: 100%;
+                width: 0%;
+                background: linear-gradient(90deg, #22c55e, #f97316);
+                transition: width 0.25s ease;
+            }
+
+            .pill-group {
+                margin-top: 4px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .pill {
+                font-size: 11px;
+                padding: 3px 8px;
+                border-radius: 999px;
+                background: #e5e7eb;
+                color: #374151;
+            }
+            .pill.warn {
+                background: #fef3c7;
+                color: #92400e;
+            }
+
+            @media (max-width: 780px) {
+                .grid {
+                    grid-template-columns: minmax(0, 1fr);
+                }
+                .card {
+                    padding: 18px 16px 18px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">음식 이미지 분류 서비스</h1>
+                    <p class="card-subtitle">
+                        음식 사진을 업로드하면 음식 종류와 영양·알레르기 정보를
+                        보여줍니다.
+                    </p>
+                </div>
+
+                <div class="grid">
+                    <!-- 왼쪽: 업로드 영역 -->
+                    <section>
+                        <div class="upload-box">
+                            <div class="upload-label">이미지 업로드</div>
+                            <div id="uploadArea" class="upload-area">
+                                <div class="upload-main">
+                                    이미지 파일을 선택하거나 클릭하여
+                                    업로드하세요.
+                                </div>
+                                <div class="upload-sub">
+                                    JPG, PNG · 한 번에 1장
+                                </div>
+                                <input
+                                    id="fileInput"
+                                    type="file"
+                                    accept="image/*"
+                                />
+                            </div>
+
+                            <div
+                                id="previewWrapper"
+                                class="preview-wrapper"
+                                style="display: none"
+                            >
+                                <img
+                                    id="previewImage"
+                                    class="preview-image"
+                                    alt="미리보기"
+                                />
+                                <div
+                                    id="previewInfo"
+                                    class="preview-info"
+                                ></div>
+                            </div>
+
+                            <div class="buttons">
+                                <button
+                                    id="selectBtn"
+                                    class="btn-secondary"
+                                    type="button"
+                                >
+                                    파일 선택
+                                </button>
+                                <button
+                                    id="predictBtn"
+                                    class="btn-primary"
+                                    type="button"
+                                    disabled
+                                >
+                                    분류하기
+                                </button>
+                            </div>
+
+                            <div id="status" class="status"></div>
+                        </div>
+                    </section>
+
+                    <!-- 오른쪽: 결과 영역 -->
+                    <section>
+                        <div class="upload-label" style="margin-bottom: 8px">
+                            분석 결과
+                        </div>
+                        <div class="result-box">
+                            <div id="emptyResult" class="result-empty">
+                                아직 결과가 없습니다. 왼쪽에서 이미지를 업로드한
+                                후 분류하기를 눌러주세요.
+                            </div>
+
+                            <div id="resultContent" style="display: none">
+                                <div class="result-row">
+                                    <span class="result-label"
+                                        >예측된 음식</span
+                                    >
+                                    <div class="food-name">
+                                        <span id="foodNameKo"></span>
+                                        <span
+                                            id="foodNameEn"
+                                            class="food-name-en"
+                                        ></span>
+                                        <span
+                                            id="confidenceBadge"
+                                            class="confidence"
+                                            style="display: none"
+                                        >
+                                            <span
+                                                id="confidenceDot"
+                                                class="conf-dot"
+                                            ></span>
+                                            <span id="confidenceText"></span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="result-row">
+                                    <span class="result-label">예측 확률</span>
+                                    <span
+                                        id="probText"
+                                        class="prob-text"
+                                    ></span>
+                                    <div class="prob-bar-wrap">
+                                        <div
+                                            id="probBar"
+                                            class="prob-bar"
+                                        ></div>
+                                    </div>
+                                </div>
+
+                                <div class="result-row">
+                                    <span class="result-label">영양 정보</span>
+                                    <div id="nutritionArea"></div>
+                                </div>
+
+                                <div class="result-row">
+                                    <span class="result-label"
+                                        >알레르기 성분</span
+                                    >
+                                    <div id="allergenArea"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const API_BASE = 'http://127.0.0.1:8000';
+
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+            const selectBtn = document.getElementById('selectBtn');
+            const predictBtn = document.getElementById('predictBtn');
+            const statusEl = document.getElementById('status');
+            const previewWrapper = document.getElementById('previewWrapper');
+            const previewImage = document.getElementById('previewImage');
+            const previewInfo = document.getElementById('previewInfo');
+
+            const emptyResult = document.getElementById('emptyResult');
+            const resultContent = document.getElementById('resultContent');
+            const foodNameKoEl = document.getElementById('foodNameKo');
+            const foodNameEnEl = document.getElementById('foodNameEn');
+            const probTextEl = document.getElementById('probText');
+            const probBarEl = document.getElementById('probBar');
+            const nutritionArea = document.getElementById('nutritionArea');
+            const allergenArea = document.getElementById('allergenArea');
+            const confidenceBadge = document.getElementById('confidenceBadge');
+            const confidenceDot = document.getElementById('confidenceDot');
+            const confidenceText = document.getElementById('confidenceText');
+
+            let currentFile = null;
+
+            function setStatus(text, type = '') {
+                statusEl.textContent = text || '';
+                statusEl.className = 'status' + (type ? ' ' + type : '');
+            }
+
+            function resetResult() {
+                emptyResult.style.display = 'block';
+                resultContent.style.display = 'none';
+                probBarEl.style.width = '0%';
+                foodNameKoEl.textContent = '';
+                foodNameEnEl.textContent = '';
+                probTextEl.textContent = '';
+                nutritionArea.innerHTML = '';
+                allergenArea.innerHTML = '';
+                confidenceBadge.style.display = 'none';
+            }
+
+            function handleFiles(files) {
+                if (!files || !files[0]) return;
+                const file = files[0];
+
+                if (!file.type.startsWith('image/')) {
+                    setStatus('이미지 파일만 업로드할 수 있습니다.', 'error');
+                    return;
+                }
+
+                currentFile = file;
+                predictBtn.disabled = false;
+                resetResult();
+                setStatus('');
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImage.src = e.target.result;
+                    previewWrapper.style.display = 'flex';
+                    previewInfo.innerHTML =
+                        `<div><b>파일명</b> ${file.name}</div>` +
+                        `<div><b>크기</b> ${(file.size / 1024).toFixed(
+                            1
+                        )} KB</div>` +
+                        `<div><b>형식</b> ${file.type}</div>`;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            uploadArea.addEventListener('click', () => fileInput.click());
+            selectBtn.addEventListener('click', () => fileInput.click());
+            fileInput.addEventListener('change', (e) =>
+                handleFiles(e.target.files)
+            );
+
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('hover');
+            });
+
+            uploadArea.addEventListener('dragleave', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('hover');
+            });
+
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('hover');
+                handleFiles(e.dataTransfer.files);
+            });
+
+            predictBtn.addEventListener('click', async () => {
+                if (!currentFile) {
+                    setStatus('먼저 이미지를 선택해주세요.', 'error');
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('file', currentFile);
+
+                setStatus('분류 중입니다...', 'success');
+                predictBtn.disabled = true;
+
+                try {
+                    const res = await fetch(`${API_BASE}/predict`, {
+                        method: 'POST',
+                        body: formData,
+                    });
+
+                    if (!res.ok) {
+                        throw new Error(`서버 오류 (${res.status})`);
+                    }
+
+                    const data = await res.json();
+                    showResult(data);
+                    setStatus('분류가 완료되었습니다.', 'success');
+                } catch (err) {
+                    console.error(err);
+                    setStatus('예측 중 오류가 발생했습니다.', 'error');
+                } finally {
+                    predictBtn.disabled = !currentFile;
+                }
+            });
+
+            function showResult(data) {
+                emptyResult.style.display = 'none';
+                resultContent.style.display = 'block';
+
+                const en = data.en_name || '-';
+                const ko = data.ko_name || '-';
+                const prob =
+                    typeof data.probability === 'number' ? data.probability : 0;
+
+                foodNameKoEl.textContent = ko;
+                foodNameEnEl.textContent = en === '-' ? '' : `(${en})`;
+
+                const probPercent = (prob * 100).toFixed(2);
+                probTextEl.textContent = `${probPercent} %`;
+                probBarEl.style.width = `${Math.max(prob * 100, 4)}%`;
+
+                let label = '';
+                let cls = 'conf-dot';
+                if (prob >= 0.8) {
+                    label = '확신 높음';
+                    cls = 'conf-dot';
+                } else if (prob >= 0.5) {
+                    label = '보통 정도';
+                    cls = 'conf-dot conf-mid';
+                } else {
+                    label = '확신 낮음';
+                    cls = 'conf-dot conf-low';
+                }
+                confidenceBadge.style.display = 'inline-flex';
+                confidenceText.textContent = label;
+                confidenceDot.className = cls;
+
+                const n = data.nutrition || {};
+                const unit = n.unit; // ← 기준 단위 (예: "100 g")
+
+                const hasNutrition =
+                    n.calories_kcal != null ||
+                    n.carbs_g != null ||
+                    n.protein_g != null ||
+                    n.fat_g != null;
+
+                if (hasNutrition) {
+                    const items = [];
+                    if (n.calories_kcal != null)
+                        items.push(`칼로리 ${n.calories_kcal} kcal`);
+                    if (n.carbs_g != null)
+                        items.push(`탄수화물 ${n.carbs_g} g`);
+                    if (n.protein_g != null)
+                        -items.push(`단백질 ${n.protein_g} g`);
+                    if (n.fat_g != null) items.push(`지방 ${n.fat_g} g`);
+
+                    // 기준 단위 문구 만들기
+                    const unitHtml = unit
+                        ? `<div class="prob-text" style="margin-bottom:4px;">기준량: ${unit} 기준</div>`
+                        : '';
+
+                    nutritionArea.innerHTML =
+                        unitHtml +
+                        '<div class="pill-group">' +
+                        items
+                            .map((t) => `<span class="pill">${t}</span>`)
+                            .join('') +
+                        '</div>';
+                } else {
+                    nutritionArea.innerHTML =
+                        '<div class="result-empty">해당 음식의 영양 정보가 아직 등록되지 않았습니다.</div>';
+                }
+
+                const allergens = data.allergens || [];
+                if (allergens.length > 0) {
+                    allergenArea.innerHTML =
+                        '<div class="pill-group">' +
+                        allergens
+                            .map((a) => `<span class="pill warn">${a}</span>`)
+                            .join('') +
+                        '</div>';
+                } else {
+                    allergenArea.innerHTML =
+                        '<div class="result-empty">등록된 알레르기 성분이 없습니다.</div>';
+                }
+            }
+        </script>
+    </body>
+</html>

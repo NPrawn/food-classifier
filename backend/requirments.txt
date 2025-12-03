@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pydantic
+numpy
+Pillow
+python-multipart
+
+# Mac M1용 TensorFlow
+tensorflow-macos
+tensorflow-metal
