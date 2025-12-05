@@ -21,7 +21,7 @@
             }
             .wrapper {
                 width: 100%;
-                max-width: 780px;
+                max-width: 900px;
                 padding: 24px 16px;
             }
             .card {
@@ -47,7 +47,7 @@
 
             .grid {
                 display: grid;
-                grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+                grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
                 gap: 20px;
             }
 
@@ -174,27 +174,60 @@
                 background: #f9fafb;
                 font-size: 13px;
                 color: #374151;
+                max-height: 520px;
+                overflow-y: auto;
             }
             .result-empty {
                 font-size: 12px;
                 color: #9ca3af;
                 font-style: italic;
             }
+
+            .results-container {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .result-card {
+                background: #ffffff;
+                border-radius: 10px;
+                border: 1px solid #e5e7eb;
+                padding: 10px 10px 10px;
+                display: grid;
+                grid-template-columns: 80px minmax(0, 1fr);
+                gap: 10px;
+            }
+            .result-card-thumb {
+                width: 80px;
+                height: 80px;
+                border-radius: 8px;
+                object-fit: cover;
+                background: #e5e7eb;
+                border: 1px solid #e5e7eb;
+            }
+            .result-main {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+
             .result-row {
-                margin-top: 8px;
+                margin-top: 2px;
             }
             .result-label {
                 font-weight: 500;
                 margin-right: 4px;
                 color: #4b5563;
+                font-size: 12px;
             }
             .food-name {
-                font-size: 15px;
+                font-size: 14px;
                 font-weight: 600;
                 color: #111827;
             }
             .food-name-en {
-                font-size: 12px;
+                font-size: 11px;
                 color: #6b7280;
                 margin-left: 4px;
             }
@@ -227,11 +260,11 @@
                 color: #4b5563;
             }
             .prob-bar-wrap {
-                margin-top: 4px;
+                margin-top: 3px;
                 background: #e5e7eb;
                 border-radius: 999px;
                 overflow: hidden;
-                height: 8px;
+                height: 6px;
             }
             .prob-bar {
                 height: 100%;
@@ -244,7 +277,7 @@
                 margin-top: 4px;
                 display: flex;
                 flex-wrap: wrap;
-                gap: 6px;
+                gap: 4px;
             }
             .pill {
                 font-size: 11px;
@@ -258,12 +291,46 @@
                 color: #92400e;
             }
 
+            /* 상세 영양정보 박스 */
+            .nutrition-detail {
+                background: #ffffff;
+                border-radius: 8px;
+                border: 1px solid #e5e7eb;
+                padding: 6px 8px;
+                font-size: 11px;
+                color: #4b5563;
+                margin-top: 4px;
+            }
+            .nutrition-detail table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .nutrition-detail th,
+            .nutrition-detail td {
+                padding: 2px 0;
+                text-align: left;
+            }
+            .nutrition-detail th {
+                width: 55%;
+                font-weight: 500;
+                color: #374151;
+            }
+
+            .detail-toggle-btn {
+                margin-top: 4px;
+                padding: 3px 9px;
+                font-size: 11px;
+            }
+
             @media (max-width: 780px) {
                 .grid {
                     grid-template-columns: minmax(0, 1fr);
                 }
                 .card {
                     padding: 18px 16px 18px;
+                }
+                .result-card {
+                    grid-template-columns: 70px minmax(0, 1fr);
                 }
             }
         </style>
@@ -290,12 +357,13 @@
                                     업로드하세요.
                                 </div>
                                 <div class="upload-sub">
-                                    JPG, PNG · 한 번에 1장
+                                    JPG, PNG, JPEG · 최대 10장
                                 </div>
                                 <input
                                     id="fileInput"
                                     type="file"
                                     accept="image/*"
+                                    multiple
                                 />
                             </div>
 
@@ -348,57 +416,10 @@
                                 후 분류하기를 눌러주세요.
                             </div>
 
-                            <div id="resultContent" style="display: none">
-                                <div class="result-row">
-                                    <span class="result-label"
-                                        >예측된 음식</span
-                                    >
-                                    <div class="food-name">
-                                        <span id="foodNameKo"></span>
-                                        <span
-                                            id="foodNameEn"
-                                            class="food-name-en"
-                                        ></span>
-                                        <span
-                                            id="confidenceBadge"
-                                            class="confidence"
-                                            style="display: none"
-                                        >
-                                            <span
-                                                id="confidenceDot"
-                                                class="conf-dot"
-                                            ></span>
-                                            <span id="confidenceText"></span>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="result-row">
-                                    <span class="result-label">예측 확률</span>
-                                    <span
-                                        id="probText"
-                                        class="prob-text"
-                                    ></span>
-                                    <div class="prob-bar-wrap">
-                                        <div
-                                            id="probBar"
-                                            class="prob-bar"
-                                        ></div>
-                                    </div>
-                                </div>
-
-                                <div class="result-row">
-                                    <span class="result-label">영양 정보</span>
-                                    <div id="nutritionArea"></div>
-                                </div>
-
-                                <div class="result-row">
-                                    <span class="result-label"
-                                        >알레르기 성분</span
-                                    >
-                                    <div id="allergenArea"></div>
-                                </div>
-                            </div>
+                            <div
+                                id="resultsContainer"
+                                class="results-container"
+                            ></div>
                         </div>
                     </section>
                 </div>
@@ -418,18 +439,10 @@
             const previewInfo = document.getElementById('previewInfo');
 
             const emptyResult = document.getElementById('emptyResult');
-            const resultContent = document.getElementById('resultContent');
-            const foodNameKoEl = document.getElementById('foodNameKo');
-            const foodNameEnEl = document.getElementById('foodNameEn');
-            const probTextEl = document.getElementById('probText');
-            const probBarEl = document.getElementById('probBar');
-            const nutritionArea = document.getElementById('nutritionArea');
-            const allergenArea = document.getElementById('allergenArea');
-            const confidenceBadge = document.getElementById('confidenceBadge');
-            const confidenceDot = document.getElementById('confidenceDot');
-            const confidenceText = document.getElementById('confidenceText');
+            const resultsContainer =
+                document.getElementById('resultsContainer');
 
-            let currentFile = null;
+            let currentFiles = [];
 
             function setStatus(text, type = '') {
                 statusEl.textContent = text || '';
@@ -438,42 +451,46 @@
 
             function resetResult() {
                 emptyResult.style.display = 'block';
-                resultContent.style.display = 'none';
-                probBarEl.style.width = '0%';
-                foodNameKoEl.textContent = '';
-                foodNameEnEl.textContent = '';
-                probTextEl.textContent = '';
-                nutritionArea.innerHTML = '';
-                allergenArea.innerHTML = '';
-                confidenceBadge.style.display = 'none';
+                resultsContainer.innerHTML = '';
             }
 
-            function handleFiles(files) {
-                if (!files || !files[0]) return;
-                const file = files[0];
+            function handleFiles(fileList) {
+                if (!fileList || !fileList.length) return;
 
-                if (!file.type.startsWith('image/')) {
+                const files = Array.from(fileList);
+
+                if (files.length > 10) {
+                    setStatus('최대 10장까지 선택할 수 있습니다.', 'error');
+                    return;
+                }
+
+                const imageFiles = files.filter((f) =>
+                    f.type.startsWith('image/')
+                );
+                if (imageFiles.length === 0) {
                     setStatus('이미지 파일만 업로드할 수 있습니다.', 'error');
                     return;
                 }
 
-                currentFile = file;
-                predictBtn.disabled = false;
+                // 이전 결과/상태 초기화
                 resetResult();
                 setStatus('');
 
+                currentFiles = imageFiles;
+                predictBtn.disabled = false;
+
+                // 미리보기: 첫 번째 이미지 + 개수 정보
+                const first = imageFiles[0];
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     previewImage.src = e.target.result;
                     previewWrapper.style.display = 'flex';
                     previewInfo.innerHTML =
-                        `<div><b>파일명</b> ${file.name}</div>` +
-                        `<div><b>크기</b> ${(file.size / 1024).toFixed(
-                            1
-                        )} KB</div>` +
-                        `<div><b>형식</b> ${file.type}</div>`;
+                        `<div><b>선택된 파일 수</b> ${imageFiles.length}개</div>` +
+                        `<div><b>대표 파일명</b> ${first.name}</div>` +
+                        `<div><b>형식</b> ${first.type}</div>`;
                 };
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(first);
             }
 
             uploadArea.addEventListener('click', () => fileInput.click());
@@ -499,49 +516,126 @@
             });
 
             predictBtn.addEventListener('click', async () => {
-                if (!currentFile) {
+                if (!currentFiles.length) {
                     setStatus('먼저 이미지를 선택해주세요.', 'error');
                     return;
                 }
 
-                const formData = new FormData();
-                formData.append('file', currentFile);
+                if (currentFiles.length > 10) {
+                    setStatus('최대 10장까지 선택할 수 있습니다.', 'error');
+                    return;
+                }
 
-                setStatus('분류 중입니다...', 'success');
+                resetResult();
+                setStatus(
+                    `${currentFiles.length}개 이미지를 분류 중입니다...`,
+                    'success'
+                );
                 predictBtn.disabled = true;
 
                 try {
-                    const res = await fetch(`${API_BASE}/predict`, {
-                        method: 'POST',
-                        body: formData,
-                    });
+                    let idx = 0;
+                    for (const file of currentFiles) {
+                        const formData = new FormData();
+                        formData.append('file', file);
 
-                    if (!res.ok) {
-                        throw new Error(`서버 오류 (${res.status})`);
+                        const res = await fetch(`${API_BASE}/predict`, {
+                            method: 'POST',
+                            body: formData,
+                        });
+
+                        if (!res.ok) {
+                            throw new Error(`서버 오류 (${res.status})`);
+                        }
+
+                        const data = await res.json();
+                        addResultCard(file, data, idx);
+                        idx += 1;
                     }
 
-                    const data = await res.json();
-                    showResult(data);
-                    setStatus('분류가 완료되었습니다.', 'success');
+                    if (idx > 0) {
+                        emptyResult.style.display = 'none';
+                    }
+
+                    setStatus(
+                        `${currentFiles.length}개 이미지 분류가 완료되었습니다.`,
+                        'success'
+                    );
                 } catch (err) {
                     console.error(err);
                     setStatus('예측 중 오류가 발생했습니다.', 'error');
                 } finally {
-                    predictBtn.disabled = !currentFile;
+                    predictBtn.disabled = !currentFiles.length;
                 }
             });
 
-            function showResult(data) {
-                emptyResult.style.display = 'none';
-                resultContent.style.display = 'block';
+            function addResultCard(file, data, index) {
+                const card = document.createElement('div');
+                card.className = 'result-card';
+
+                const imgUrl = URL.createObjectURL(file);
+
+                card.innerHTML = `
+                    <img class="result-card-thumb" src="${imgUrl}" alt="preview-${index}" />
+                    <div class="result-main">
+                        <div class="result-row">
+                            <span class="result-label">파일</span>
+                            <span style="font-size:12px;color:#6b7280;">${file.name}</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">예측된 음식</span>
+                            <div class="food-name">
+                                <span class="food-ko"></span>
+                                <span class="food-en food-name-en"></span>
+                                <span class="confidence" style="display:none;">
+                                    <span class="conf-dot"></span>
+                                    <span class="conf-text"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">예측 확률</span>
+                            <span class="prob-text"></span>
+                            <div class="prob-bar-wrap">
+                                <div class="prob-bar"></div>
+                            </div>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">영양 정보</span>
+                            <div class="nutrition-basic"></div>
+                            <button class="btn-secondary detail-toggle-btn" type="button" style="display:none;">
+                                상세 영양정보 보기 ▾
+                            </button>
+                            <div class="nutrition-detail" style="display:none;"></div>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">알레르기 성분</span>
+                            <div class="allergen-area"></div>
+                        </div>
+                    </div>
+                `;
+
+                resultsContainer.appendChild(card);
+
+                const foodKoEl = card.querySelector('.food-ko');
+                const foodEnEl = card.querySelector('.food-en');
+                const probTextEl = card.querySelector('.prob-text');
+                const probBarEl = card.querySelector('.prob-bar');
+                const confBadge = card.querySelector('.confidence');
+                const confDot = card.querySelector('.conf-dot');
+                const confText = card.querySelector('.conf-text');
+                const nutritionBasic = card.querySelector('.nutrition-basic');
+                const detailBtn = card.querySelector('.detail-toggle-btn');
+                const nutritionDetail = card.querySelector('.nutrition-detail');
+                const allergenArea = card.querySelector('.allergen-area');
 
                 const en = data.en_name || '-';
                 const ko = data.ko_name || '-';
                 const prob =
                     typeof data.probability === 'number' ? data.probability : 0;
 
-                foodNameKoEl.textContent = ko;
-                foodNameEnEl.textContent = en === '-' ? '' : `(${en})`;
+                foodKoEl.textContent = ko;
+                foodEnEl.textContent = en === '-' ? '' : `(${en})`;
 
                 const probPercent = (prob * 100).toFixed(2);
                 probTextEl.textContent = `${probPercent} %`;
@@ -559,44 +653,89 @@
                     label = '확신 낮음';
                     cls = 'conf-dot conf-low';
                 }
-                confidenceBadge.style.display = 'inline-flex';
-                confidenceText.textContent = label;
-                confidenceDot.className = cls;
+                confBadge.style.display = 'inline-flex';
+                confText.textContent = label;
+                confDot.className = cls;
 
                 const n = data.nutrition || {};
-                const unit = n.unit; // ← 기준 단위 (예: "100 g")
+                const unit = n.unit;
 
-                const hasNutrition =
-                    n.calories_kcal != null ||
-                    n.carbs_g != null ||
-                    n.protein_g != null ||
-                    n.fat_g != null;
+                // 기본 6개
+                const basicItems = [];
+                if (n.calories_kcal != null)
+                    basicItems.push(`칼로리 ${n.calories_kcal} kcal`);
+                if (n.carbs_g != null)
+                    basicItems.push(`탄수화물 ${n.carbs_g} g`);
+                if (n.protein_g != null)
+                    basicItems.push(`단백질 ${n.protein_g} g`);
+                if (n.fat_g != null) basicItems.push(`지방 ${n.fat_g} g`);
+                if (n.sugars_g != null) basicItems.push(`당류 ${n.sugars_g} g`);
+                if (n.sodium_mg != null)
+                    basicItems.push(`나트륨 ${n.sodium_mg} mg`);
 
-                if (hasNutrition) {
-                    const items = [];
-                    if (n.calories_kcal != null)
-                        items.push(`칼로리 ${n.calories_kcal} kcal`);
-                    if (n.carbs_g != null)
-                        items.push(`탄수화물 ${n.carbs_g} g`);
-                    if (n.protein_g != null)
-                        -items.push(`단백질 ${n.protein_g} g`);
-                    if (n.fat_g != null) items.push(`지방 ${n.fat_g} g`);
-
-                    // 기준 단위 문구 만들기
+                if (basicItems.length > 0) {
                     const unitHtml = unit
                         ? `<div class="prob-text" style="margin-bottom:4px;">기준량: ${unit} 기준</div>`
                         : '';
-
-                    nutritionArea.innerHTML =
+                    nutritionBasic.innerHTML =
                         unitHtml +
                         '<div class="pill-group">' +
-                        items
+                        basicItems
                             .map((t) => `<span class="pill">${t}</span>`)
                             .join('') +
                         '</div>';
                 } else {
-                    nutritionArea.innerHTML =
+                    nutritionBasic.innerHTML =
                         '<div class="result-empty">해당 음식의 영양 정보가 아직 등록되지 않았습니다.</div>';
+                }
+
+                // 상세 18개
+                const detailFields = [
+                    ['수분', n.moisture_g, 'g'],
+                    ['회분', n.ash_g, 'g'],
+                    ['식이섬유', n.dietary_fiber_g, 'g'],
+                    ['칼슘', n.calcium_mg, 'mg'],
+                    ['철', n.iron_mg, 'mg'],
+                    ['인', n.phosphorus_mg, 'mg'],
+                    ['칼륨', n.potassium_mg, 'mg'],
+                    ['비타민 A', n.vitamin_a_ug_rae, 'μg RAE'],
+                    ['레티놀', n.retinol_ug, 'μg'],
+                    ['베타카로틴', n.beta_carotene_ug, 'μg'],
+                    ['티아민', n.thiamin_mg, 'mg'],
+                    ['리보플라빈', n.riboflavin_mg, 'mg'],
+                    ['니아신', n.niacin_mg, 'mg'],
+                    ['비타민 C', n.vitamin_c_mg, 'mg'],
+                    ['비타민 D', n.vitamin_d_ug, 'μg'],
+                    ['콜레스테롤', n.cholesterol_mg, 'mg'],
+                    ['포화지방산', n.saturated_fatty_acids_g, 'g'],
+                    ['트랜스지방산', n.trans_fatty_acids_g, 'g'],
+                ];
+
+                const detailRows = detailFields
+                    .filter(([, value]) => value != null)
+                    .map(([label, value, unit]) => {
+                        return `<tr><th>${label}</th><td>${value} ${unit}</td></tr>`;
+                    });
+
+                if (detailRows.length > 0) {
+                    nutritionDetail.innerHTML =
+                        '<table>' + detailRows.join('') + '</table>';
+                    detailBtn.style.display = 'inline-block';
+
+                    let opened = false;
+                    detailBtn.onclick = () => {
+                        opened = !opened;
+                        nutritionDetail.style.display = opened
+                            ? 'block'
+                            : 'none';
+                        detailBtn.textContent = opened
+                            ? '상세 영양정보 숨기기 ▴'
+                            : '상세 영양정보 보기 ▾';
+                    };
+                } else {
+                    nutritionDetail.innerHTML = '';
+                    nutritionDetail.style.display = 'none';
+                    detailBtn.style.display = 'none';
                 }
 
                 const allergens = data.allergens || [];

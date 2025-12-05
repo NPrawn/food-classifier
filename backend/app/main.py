@@ -38,10 +38,34 @@ async def predict_food(file: UploadFile = File(...)):
     info = get_nutrition_by_en_name(en_name)
     nutrition = NutritionInfo(
         unit=info.get("unit"),
+
+        # 기본 6개
         calories_kcal=info.get("calories_kcal"),
         carbs_g=info.get("carbs_g"),
         protein_g=info.get("protein_g"),
         fat_g=info.get("fat_g"),
+        sugars_g=info.get("sugars_g"),
+        sodium_mg=info.get("sodium_mg"),
+
+        # 상세 18개
+        moisture_g=info.get("moisture_g"),
+        ash_g=info.get("ash_g"),
+        dietary_fiber_g=info.get("dietary_fiber_g"),
+        calcium_mg=info.get("calcium_mg"),
+        iron_mg=info.get("iron_mg"),
+        phosphorus_mg=info.get("phosphorus_mg"),
+        potassium_mg=info.get("potassium_mg"),
+        vitamin_a_ug_rae=info.get("vitamin_a_ug_rae"),
+        retinol_ug=info.get("retinol_ug"),
+        beta_carotene_ug=info.get("beta_carotene_ug"),
+        thiamin_mg=info.get("thiamin_mg"),
+        riboflavin_mg=info.get("riboflavin_mg"),
+        niacin_mg=info.get("niacin_mg"),
+        vitamin_c_mg=info.get("vitamin_c_mg"),
+        vitamin_d_ug=info.get("vitamin_d_ug"),
+        cholesterol_mg=info.get("cholesterol_mg"),
+        saturated_fatty_acids_g=info.get("saturated_fatty_acids_g"),
+        trans_fatty_acids_g=info.get("trans_fatty_acids_g"),
     )
     allergens = get_allergens_by_en_name(en_name)
 
