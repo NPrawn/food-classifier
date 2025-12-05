@@ -6,5 +6,8 @@ Pillow
 python-multipart
 
 # Mac M1용 TensorFlow
-tensorflow-macos
-tensorflow-metal
+# tensorflow-macos
+# tensorflow-metal
+
+# Mac/Windows용 CPU 버전
+tensorflow==2.16.2
