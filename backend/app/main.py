@@ -1,6 +1,9 @@
 # app/main.py
+from pathlib import Path
+
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 
 from .schemas import PredictionResponse, NutritionInfo
 from .classifier import predict
@@ -22,10 +25,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-def root():
-    return {"message": "Food Classification API 서버 작동 중"}
+# === static/index.html 서빙 설정 ===
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+FRONTEND_DIR = PROJECT_ROOT / "frontend"
+INDEX_HTML = FRONTEND_DIR / "index.html"
 
+@app.get("/", include_in_schema=False)
+async def serve_index():
+    return FileResponse(INDEX_HTML)
+
+# === 예측 API ===
 @app.post("/predict", response_model=PredictionResponse)
 async def predict_food(file: UploadFile = File(...)):
     # 업로드된 파일 읽기
